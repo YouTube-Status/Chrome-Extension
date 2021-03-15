@@ -7,17 +7,17 @@
     "description": "When you watching YouTube, Discord show your watching activity by this app.",
     "icons": {},
     "background": {
-        "scripts": ["background.js"],
+        "scripts": ["src/background.js"],
         "persistent": true
     },
     "browser_action": {
         "$default_icon": {},
         "default_title": "YouTube Status",
-        "default_popup": "popup.html"
+        "default_popup": "src/popup.html"
     },
     "permissions": [
         "tabs",
         "activeTab"
     ],
     "homepage_url": "https://github.com/YouTube-Status"
-}  
+}
