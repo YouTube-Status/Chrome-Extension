@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "YouTube Status Share For Discord",
+    "short_name": "YouTube Status",
+    "version": "0.0.0.0",
+    "author": "NITIC Students",
+    "description": "When you watching YouTube, Discord show your watching activity by this app.",
+    "icons": {},
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "browser_action": {
+        "$default_icon": {},
+        "default_title": "YouTube Status",
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+    "homepage_url": "https://github.com/YouTube-Status"
+}  
