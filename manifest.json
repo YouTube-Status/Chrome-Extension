@@ -5,19 +5,18 @@
     "version": "0.0.0.0",
     "author": "NITIC Students",
     "description": "When you watching YouTube, Discord show your watching activity by this app.",
-    "icons": {},
     "background": {
         "scripts": ["src/background.js"],
         "persistent": true
     },
     "browser_action": {
-        "$default_icon": {},
         "default_title": "YouTube Status",
-        "default_popup": "src/popup.html"
+        "default_popup": "src/popup/popup.html"
     },
     "permissions": [
         "tabs",
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
     "homepage_url": "https://github.com/YouTube-Status"
 }
