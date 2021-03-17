@@ -1,5 +1,5 @@
 const repeat_milliseconds = 5000;
-const host_name = "youtube_status"
+const host_name = "youtube_status";
 
 function ready() {
     // 接続
@@ -86,7 +86,7 @@ async function YouTube_Status() {
 
         if (all_tabs_status == undefined) {
             chrome.storage.local.set({"all_tabs": true});
-        }
+        };
 
         if (all_tabs_status == true) {
             all_tabs();
