@@ -53,6 +53,7 @@ $(document).on("change", "#status", function() {
     } else {
         $("#all_tabs").prop("disabled", true);
         chrome.storage.local.set({"status": false});
+        chrome.storage.local.set({"config_reset": true});
     };
 });
 
@@ -64,4 +65,9 @@ $(document).on("change", "#all_tabs", function() {
     } else {
         chrome.storage.local.set({"all_tabs": false});
     };
+});
+
+$(document).on("click", "#reset", function() {
+    $(this).prop("disabled", true);
+    chrome.storage.local.set({"config_reset": true});
 });
