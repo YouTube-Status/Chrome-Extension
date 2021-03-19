@@ -10,3 +10,7 @@ h2 {
 #os_error {
     display: none;
 }
+
+#directory_error {
+    display: none;
+}

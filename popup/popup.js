@@ -3,9 +3,22 @@ $(function() {
     // OSチェック
     chrome.runtime.getPlatformInfo(function(info){
         if (info.os != "win") {
-            $(".checkbox").hide();
+            $(".option").hide();
             $("#os_error").show();
+            return;
         };
+
+        chrome.storage.local.get("directory", function(result) {
+            let directory = result.directory;
+
+            $(".option").show();
+            $("#directory_error").hide();
+
+            if (!directory) {
+                $(".option").hide();
+                $("#directory_error").show();
+            };
+        });
     });
 
     chrome.storage.local.get("status", function(result) {
@@ -14,6 +27,9 @@ $(function() {
         if (status) {
             $("#status").prop("checked", true);
             chrome.storage.local.set({"status": true});
+            $("#all_tabs").prop("disabled", false);
+        } else {
+            $("#all_tabs").prop("disabled", true);
         };
     });
 
@@ -32,8 +48,10 @@ $(document).on("change", "#status", function() {
     let status = $(this).prop("checked");
 
     if (status) {
+        $("#all_tabs").prop("disabled", false);
         chrome.storage.local.set({"status": true});
     } else {
+        $("#all_tabs").prop("disabled", true);
         chrome.storage.local.set({"status": false});
     };
 });
