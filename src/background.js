@@ -119,7 +119,7 @@ function all_tabs() {
 
             // YouTubeのタブが1つだけのとき（別ウィンドウのアクティブタブ）
             if (active_url_array.length == 1) {
-                post_message(`{"token":"${token}", "type":"status", "active":True, "multi":1, "active_tab":False, "title":"${active_title_array[0]}", "url":"${active_url_array[0]}"}`);
+                post_message(`{"token":"${token}", "type":"status", "active":True, "multi":1, "active_tab":True, "title":"${active_title_array[0]}", "url":"${active_url_array[0]}"}`);
                 return;
             };
 
