@@ -71,7 +71,7 @@ function active_tab() {
             title = title.replace(/^\([0-9]+\)/, "").replace(/(- YouTube)$/, "").replace(/^\s+|\s+$/g, "");
             post_message(`{"token":"${token}", "type":"status", "active":True, "multi":1, "active_tab":True, "title":"${title}", "url":"${url}"}`);
         } else {
-            post_message(`{"token":"${token}", "type":"status", "active":False, "multi":0}`);
+            post_message(`{"token":"${token}", "type":"status", "active":False, "multi":0, "active_tab":False, "title":"null", "url":"null"}`);
         };
     });
 };
@@ -143,6 +143,15 @@ function all_tabs() {
 
 async function YouTube_Status() {
     let invalid = false;
+
+    await chrome.storage.local.get("config_reset", function(result) {
+        let config_reset = result.config_reset;
+
+        if (config_reset) {
+            post_message(`{"token":"${token}", "type":"status", "active":False, "multi":0, "active_tab":False, "title":"null", "url":"null"}`);
+            chrome.storage.local.set({"config_reset": false});
+        };
+    });
 
     // 実行確認
     await chrome.storage.local.get("status", function(result) {
